@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wtao.mybatis.generator.mapper.ImageMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wtao.mybatis.generator.entity.Image">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="os_type" property="osType" />
+        <result column="origin_name" property="originName" />
+        <result column="file_type" property="fileType" />
+        <result column="note" property="note" />
+        <result column="create_time" property="createTime" />
+        <result column="stage" property="stage" />
+        <result column="enable" property="enable" />
+        <result column="status" property="status" />
+        <result column="task" property="task" />
+        <result column="task_start_time" property="taskStartTime" />
+        <result column="cloud_id" property="cloudId" />
+        <result column="disk_format" property="diskFormat" />
+        <result column="size" property="size" />
+        <result column="virtual_size" property="virtualSize" />
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, os_type, origin_name, file_type, note, create_time, stage, enable, status, task, task_start_time, cloud_id, disk_format, size, virtual_size
+    </sql>
+
+</mapper>

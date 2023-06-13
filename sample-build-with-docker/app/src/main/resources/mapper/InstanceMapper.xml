@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wtao.mybatis.generator.mapper.InstanceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wtao.mybatis.generator.entity.Instance">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="group_id" property="groupId" />
+        <result column="image_id" property="imageId" />
+        <result column="flavor_id" property="flavorId" />
+        <result column="user_id" property="userId" />
+        <result column="note" property="note" />
+        <result column="create_time" property="createTime" />
+        <result column="stage" property="stage" />
+        <result column="enable" property="enable" />
+        <result column="status" property="status" />
+        <result column="task" property="task" />
+        <result column="task_start_time" property="taskStartTime" />
+        <result column="task_retry" property="taskRetry" />
+        <result column="cloud_id" property="cloudId" />
+        <result column="hypervisor_id" property="hypervisorId" />
+        <result column="event_id" property="eventId" />
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, group_id, image_id, flavor_id, user_id, note, create_time, stage, enable, status, task, task_start_time, task_retry, cloud_id, hypervisor_id, event_id
+    </sql>
+
+</mapper>

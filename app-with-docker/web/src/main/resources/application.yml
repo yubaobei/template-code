@@ -1,0 +1,26 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /app
+
+spring:
+  application:
+    name: app
+
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.6.4:3307/cloud_desk?serverTimeZone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: cloud_desk_dbu
+    password: admin312
+
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.wtao.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

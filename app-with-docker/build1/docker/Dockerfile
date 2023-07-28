@@ -3,9 +3,9 @@ FROM  openjdk:8-jre
 MAINTAINER wutao
 
 
-ADD ./web-*.tar.gz /opt
-RUN mkdir -p /opt/web
-WORKDIR /opt/web
+ADD ./${app.name}*.tar.gz /opt
+RUN mkdir -p /opt/${app.name}
+WORKDIR /opt/${app.name}
 
 # 启动系统服务
 ENTRYPOINT ["bash","-c","./entrypoint.sh start && tail -f /dev/null"]

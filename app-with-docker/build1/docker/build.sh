@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-docker build -t web:v1 .
+docker build -t ${app.name}:${app.version} .

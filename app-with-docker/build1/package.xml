@@ -5,18 +5,40 @@
     <formats>
         <format>zip</format>
     </formats>
-    <includeBaseDirectory>false</includeBaseDirectory>
+    <includeBaseDirectory>true</includeBaseDirectory>
     <fileSets>
         <fileSet>
-            <directory>${basedir}/output/web</directory>
+            <directory>${basedir}/output/${app.name}</directory>
             <outputDirectory></outputDirectory>
-<!--            <fileMode>755</fileMode>-->
-<!--            <lineEnding>unix</lineEnding>-->
-<!--            <includes>-->
-<!--                <include>*.sh</include>-->
-<!--                <include>Dockerfile</include>-->
-<!--                <include>*.tar.gz</include>-->
-<!--            </includes>-->
+            <fileMode>755</fileMode>
+            <lineEnding>unix</lineEnding>
+            <includes>
+                <include>*.sh</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/output/${app.name}</directory>
+            <outputDirectory></outputDirectory>
+            <fileMode>755</fileMode>
+            <lineEnding>windows</lineEnding>
+            <includes>
+                <include>*.bat</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/output/${app.name}</directory>
+            <outputDirectory></outputDirectory>
+            <lineEnding>unix</lineEnding>
+            <includes>
+                <include>Dockerfile</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${basedir}/output/${app.name}</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>*.tar.gz</include>
+            </includes>
         </fileSet>
     </fileSets>
 </assembly>

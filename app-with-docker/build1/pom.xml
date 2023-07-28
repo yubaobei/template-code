@@ -22,6 +22,10 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--重要，和web项目中的app.name属性保持一致-->
+        <app.name>web</app.name>
+        <app.version>${project.version}</app.version>
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
     </properties>
 
     <build>
@@ -49,9 +53,10 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>output/web</outputDirectory>
+                            <outputDirectory>output/${app.name}</outputDirectory>
                             <resources>
                                 <resource>
+                                    <!--TODO: 启动项目编译输出目录的相对路径,这里相当于硬编码-->
                                     <directory>../web/target</directory>
                                     <includes>
                                         <include>**/*.tar.gz</include>
@@ -68,10 +73,11 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>output/web</outputDirectory>
+                            <outputDirectory>output/${app.name}</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.basedir}/docker</directory>
+                                    <filtering>true</filtering>
                                 </resource>
                             </resources>
                         </configuration>
@@ -82,13 +88,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.2</version>
+                <version>3.1.0</version>
                 <configuration>
                     <tempRoot>output</tempRoot>
                     <outputDirectory>output</outputDirectory>
                     <appendAssemblyId>false</appendAssemblyId>
-                    <finalName>web</finalName>
-                    <!--                    <archiveBaseDirectory>output</archiveBaseDirectory>-->
+                    <finalName>${app.name}-${current.time}</finalName>
                     <descriptors>
                         <descriptor>${project.basedir}/package.xml</descriptor>
                     </descriptors>
@@ -102,6 +107,25 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.9.1</version>
+                <executions>
+                    <execution>
+                        <id>timestamp-property</id>
+                        <goals>
+                            <goal>timestamp-property</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <name>current.time</name>
+                    <pattern>yyyyMMddHHmmss</pattern>
+                    <timeZone>GMT+8</timeZone>
+                </configuration>
             </plugin>
 
             <plugin>

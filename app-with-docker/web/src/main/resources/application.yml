@@ -1,11 +1,11 @@
 server:
   port: 8000
   servlet:
-    context-path: /app
+    context-path: /web
 
 spring:
   application:
-    name: app
+    name: web
 
   jackson:
     time-zone: GMT+8
